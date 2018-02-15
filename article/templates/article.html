@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+
+{% block article %}
+<h6>Дата публикации: {{article.date}}</h6>
+<h4>{{article.title}}</h4>
+<p> {{article.text}} </p>
+<p> Понравилось: {{article.likes}} </p>
+<hr>
+<p>Комментарии:</p>
+{% for comment in comments %}
+<p>{{comment.text}}</p>
+{% endfor %}
+{% endblock %}
