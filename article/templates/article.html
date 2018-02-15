@@ -1,14 +1,16 @@
 {% extends 'main.html' %}
-
+{% load static %}
 
 {% block article %}
 <h6>Дата публикации: {{article.date}}</h6>
 <h4>{{article.title}}</h4>
 <p> {{article.text}} </p>
-<p> Понравилось: {{article.likes}} </p>
+<p><img src="{% static 'ParkOmaha-icons-ltBLUE_thumbsup.png' %}" width="25px" height="25px">{{article.likes}} </p>
 <hr>
+<div class="large-offset-1 large-8 columns">
 <p>Комментарии:</p>
 {% for comment in comments %}
 <p>{{comment.text}}</p>
 {% endfor %}
 {% endblock %}
+</div>

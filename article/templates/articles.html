@@ -1,11 +1,14 @@
 {% extends 'main.html' %}
+{% load static %}
 
 {% block article %}
+<div class="large-offset-1 row">
 {% for article in articles %}
 <h6>Дата публикации: {{article.date}}</h6>
 <h4><a href="/articles/get/{{article.id}}">{{article.title}} </a></h4>
 <p> {{article.text}} </p>
-<p> Понравилось: {{article.likes}} </p>
+<p><img src="{% static 'ParkOmaha-icons-ltBLUE_thumbsup.png' %}" width="25px" height="25px">{{article.likes}} </p>
 <hr>
 {% endfor %}
+</div>
 {% endblock %}
