@@ -20,5 +20,5 @@ class Comments(models.Model):
     class Meta():
         db_table = 'comments'
 
-    text = models.TextField()
+    text = models.TextField(verbose_name="Комментарий:")
     article = models.ForeignKey(Article, on_delete=models.CASCADE)

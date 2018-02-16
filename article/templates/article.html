@@ -8,9 +8,15 @@
 <p><img src="{% static 'ParkOmaha-icons-ltBLUE_thumbsup.png' %}" width="25px" height="25px">{{article.likes}} </p>
 <hr>
 <div class="large-offset-1 large-8 columns">
-<p>Комментарии:</p>
-{% for comment in comments %}
-<p>{{comment.text}}</p>
-{% endfor %}
-{% endblock %}
+    <p>Комментарии:</p>
+    {% for comment in comments %}
+    <p>{{comment.text}}</p>
+
+    {% endfor %}
+    <form action="/articles/add_comment/{{article.id}}/ " method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="button" value="Добавить комментарий">
+    </form>
+    {% endblock %}
 </div>
