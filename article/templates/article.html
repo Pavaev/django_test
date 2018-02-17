@@ -13,7 +13,7 @@
     <p>{{comment.text}}</p>
 
     {% endfor %}
-    <form action="/articles/add_comment/{{article.id}}/ " method="post">
+    <form action="{% url 'article_app:add_comment' article.id %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="button" value="Добавить комментарий">

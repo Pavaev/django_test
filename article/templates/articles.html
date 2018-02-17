@@ -5,9 +5,9 @@
 <div class="large-offset-1 row">
     {% for article in articles %}
     <h6>Дата публикации: {{article.date}}</h6>
-    <h4><a href="/articles/get/{{article.id}}">{{article.title}} </a></h4>
+    <h4><a href="{% url 'article_app:article' article.id %}">{{article.title}} </a></h4>
     <p> {{article.text}} </p>
-    <p><a href="/articles/add_like/{{article.id}}"><img src="{% static 'ParkOmaha-icons-ltBLUE_thumbsup.png' %}" width="25px"
+    <p><a href="{% url 'article_app:add_like' article.id %}"><img src="{% static 'ParkOmaha-icons-ltBLUE_thumbsup.png' %}" width="25px"
                                          height="25px"> </a>{{article.likes}} </p>
     <hr>
     {% endfor %}

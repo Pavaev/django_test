@@ -46,7 +46,7 @@ def add_like(request, article_id):
         article.save()
     except ObjectDoesNotExist:
         raise Http404
-    return redirect("/")
+    return redirect(reverse('article_app:articles'))
 
 def add_comment(request, article_id):
     if request.POST:
@@ -58,4 +58,4 @@ def add_comment(request, article_id):
             except ObjectDoesNotExist:
                 raise Http404
             form.save()
-    return redirect('/articles/get/%s/' % article_id)
+    return redirect(reverse('article_app:article', args=[article_id]))
