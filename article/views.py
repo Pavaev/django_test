@@ -9,6 +9,7 @@ from django.urls import reverse
 from .models import Article, Comments
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import auth
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -30,9 +31,11 @@ def template_three_simple(request):
     return render_to_response('myview.html', {"name": view})
 
 
-def articles(request):
+def articles(request, page_number=1):
+    all_articles = Article.objects.all().order_by("-date")
+    current_page = Paginator(all_articles, 2)
     return render_to_response('articles.html',
-                              {"articles": Article.objects.all().order_by("date"),
+                              {"articles": current_page.page(page_number),
                                "username": auth.get_user(request).username})
 
 

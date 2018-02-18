@@ -12,6 +12,11 @@
         <label class="error">{{login_error}}</label>
         {% endif %}
         <input class="button" type="submit" value="Войти">
+
+        <div class="label round secondary">
+            <a href="{% url 'loginsys:register' %}">Регистрация</a>
+        </div>
+
     </form>
 </div>
 {% endblock %}
