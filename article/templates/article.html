@@ -13,10 +13,15 @@
     <p>{{comment.text}}</p>
 
     {% endfor %}
+
+    {% if username %}
+
     <form action="{% url 'article_app:add_comment' article.id %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="button" value="Добавить комментарий">
     </form>
+
+    {% endif %}
     {% endblock %}
 </div>
