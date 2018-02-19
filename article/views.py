@@ -78,3 +78,4 @@ def add_comment(request, article_id):
             request.session.set_expiry(60)
             request.session['pause'] = True
     return redirect(reverse('article_app:article', args=[article_id]))
+
